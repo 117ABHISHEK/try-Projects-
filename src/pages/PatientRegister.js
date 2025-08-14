@@ -58,7 +58,9 @@ const PatientRegister = () => {
     e.preventDefault();
     if (validateForm()) {
       // Handle registration logic here
-      localStorage.setItem('patient', JSON.stringify(formData));
+      const patientData = { ...formData, role: 'patient' };
+      localStorage.setItem('patient', JSON.stringify(patientData));
+      localStorage.setItem('loggedInUser', JSON.stringify(patientData));
       navigate('/home');
     }
   };

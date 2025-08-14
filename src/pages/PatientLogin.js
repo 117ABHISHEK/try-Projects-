@@ -19,7 +19,7 @@ const PatientLogin = () => {
     e.preventDefault();
     const storedPatient = JSON.parse(localStorage.getItem('patient'));
     if (storedPatient && storedPatient.email === formData.email && storedPatient.password === formData.password) {
-      localStorage.setItem('loggedInUser', JSON.stringify(storedPatient));
+      localStorage.setItem('loggedInUser', JSON.stringify({ ...storedPatient, role: 'patient' }));
       navigate('/home');
     } else {
       alert('Invalid credentials');

@@ -28,7 +28,7 @@ const HomePage = () => {
     <div className="min-h-screen bg-body-light-grey flex flex-col items-center justify-center px-4">
       <div className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md text-center">
         <h1 className="text-3xl font-bold text-charcoal-grey mb-4">Welcome, {user.name}!</h1>
-        <p className="text-gray-600 mb-8">You are logged in as a {user.confirmPassword ? 'Donor' : 'Patient'}.</p>
+        <p className="text-gray-600 mb-8">You are logged in as a {user.role === 'donor' ? 'Donor' : 'Patient'}.</p>
         
         <div className="text-left mb-8">
           <h2 className="text-xl font-semibold text-charcoal-grey mb-4">Your Profile</h2>
