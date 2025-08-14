@@ -58,7 +58,8 @@ const DonorRegister = () => {
     e.preventDefault();
     if (validateForm()) {
       // Handle registration logic here
-      console.log('Donor registration:', formData);
+      localStorage.setItem('donor', JSON.stringify(formData));
+      navigate('/home');
     }
   };
 

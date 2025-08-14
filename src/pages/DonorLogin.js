@@ -17,8 +17,13 @@ const DonorLogin = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle login logic here
-    console.log('Donor login:', formData);
+    const storedDonor = JSON.parse(localStorage.getItem('donor'));
+    if (storedDonor && storedDonor.email === formData.email && storedDonor.password === formData.password) {
+      localStorage.setItem('loggedInUser', JSON.stringify(storedDonor));
+      navigate('/home');
+    } else {
+      alert('Invalid credentials');
+    }
   };
 
   return (

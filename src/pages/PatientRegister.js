@@ -58,7 +58,8 @@ const PatientRegister = () => {
     e.preventDefault();
     if (validateForm()) {
       // Handle registration logic here
-      console.log('Patient registration:', formData);
+      localStorage.setItem('patient', JSON.stringify(formData));
+      navigate('/home');
     }
   };
 

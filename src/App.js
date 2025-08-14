@@ -6,7 +6,8 @@ import {
   DonorLogin, 
   PatientLogin, 
   DonorRegister, 
-  PatientRegister 
+  PatientRegister, 
+  HomePage
 } from './pages';
 import './App.css';
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="/patient/login" element={<PatientLogin />} />
           <Route path="/donor/register" element={<DonorRegister />} />
           <Route path="/patient/register" element={<PatientRegister />} />
+          <Route path="/home" element={<HomePage />} />
         </Routes>
       </div>
     </Router>

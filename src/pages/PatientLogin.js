@@ -17,8 +17,13 @@ const PatientLogin = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle login logic here
-    console.log('Patient login:', formData);
+    const storedPatient = JSON.parse(localStorage.getItem('patient'));
+    if (storedPatient && storedPatient.email === formData.email && storedPatient.password === formData.password) {
+      localStorage.setItem('loggedInUser', JSON.stringify(storedPatient));
+      navigate('/home');
+    } else {
+      alert('Invalid credentials');
+    }
   };
 
   return (
