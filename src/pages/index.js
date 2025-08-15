@@ -5,3 +5,4 @@ export { default as PatientLogin } from './PatientLogin';
 export { default as DonorRegister } from './DonorRegister';
 export { default as PatientRegister } from './PatientRegister';
 export { default as HomePage } from './HomePage';
+export { default as ProfilePage } from './ProfilePage';

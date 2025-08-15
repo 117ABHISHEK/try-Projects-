@@ -20,7 +20,7 @@ const DonorLogin = () => {
     const storedDonor = JSON.parse(localStorage.getItem('donor'));
     if (storedDonor && storedDonor.email === formData.email && storedDonor.password === formData.password) {
       localStorage.setItem('loggedInUser', JSON.stringify({ ...storedDonor, role: 'donor' }));
-      navigate('/home');
+      navigate('/profile');
     } else {
       alert('Invalid credentials');
     }
