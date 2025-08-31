@@ -49,20 +49,20 @@ const Dashboard = () => {
         <h3 className="text-lg font-semibold mb-4">Health Tracking</h3>
         <div className="grid md:grid-cols-2 gap-4">
           <div>
-            <p className="text-sm text-gray-600">Last Checkup</p>
+            <p className="text-sm text-charcoal-grey">Last Checkup</p>
             <p className="font-medium">{dashboardData.healthTracking.lastCheckup}</p>
           </div>
           <div>
-            <p className="text-sm text-gray-600">Next Appointment</p>
+            <p className="text-sm text-charcoal-grey">Next Appointment</p>
             <p className="font-medium">{dashboardData.healthTracking.nextAppointment}</p>
           </div>
           <div>
-            <p className="text-sm text-gray-600">Blood Type</p>
+            <p className="text-sm text-charcoal-grey">Blood Type</p>
             <p className="font-medium">{dashboardData.healthTracking.bloodType}</p>
           </div>
           <div>
-            <p className="text-sm text-gray-600">Status</p>
-            <p className="font-medium text-green-600">{dashboardData.healthTracking.status}</p>
+            <p className="text-sm text-charcoal-grey">Status</p>
+            <p className="font-medium text-sage-green">{dashboardData.healthTracking.status}</p>
           </div>
         </div>
       </div>
@@ -75,11 +75,11 @@ const Dashboard = () => {
               <div className="flex justify-between items-center">
                 <div>
                   <p className="font-medium">Blood Type: {request.bloodType}</p>
-                  <p className="text-sm text-gray-600">{request.location}</p>
+                  <p className="text-sm text-charcoal-grey">{request.location}</p>
                 </div>
                 <span
                   className={`px-2 py-1 rounded text-xs ${
-                    request.urgency === "High" ? "bg-red-100 text-red-800" : "bg-yellow-100 text-yellow-800"
+                    request.urgency === "High" ? "bg-deep-red/20 text-deep-red" : "bg-soft-gold/20 text-soft-gold"
                   }`}
                 >
                   {request.urgency}
@@ -102,7 +102,7 @@ const Dashboard = () => {
               <div className="flex justify-between">
                 <div>
                   <p className="font-medium">{donation.location}</p>
-                  <p className="text-sm text-gray-600">{donation.date}</p>
+                  <p className="text-sm text-charcoal-grey">{donation.date}</p>
                 </div>
                 <p className="font-medium">{donation.amount}</p>
               </div>
@@ -119,15 +119,15 @@ const Dashboard = () => {
               <div className="flex justify-between items-center">
                 <div>
                   <p className="font-medium">Blood Type: {request.bloodType}</p>
-                  <p className="text-sm text-gray-600">{request.hospital}</p>
+                  <p className="text-sm text-charcoal-grey">{request.hospital}</p>
                 </div>
                 <span
                   className={`px-2 py-1 rounded text-xs ${
                     request.urgency === "Critical"
-                      ? "bg-red-100 text-red-800"
+                      ? "bg-deep-red/20 text-deep-red"
                       : request.urgency === "High"
-                        ? "bg-orange-100 text-orange-800"
-                        : "bg-yellow-100 text-yellow-800"
+                        ? "bg-soft-gold/20 text-soft-gold"
+                        : "bg-soft-gold/20 text-soft-gold"
                   }`}
                 >
                   {request.urgency}
@@ -150,9 +150,9 @@ const Dashboard = () => {
               <div className="flex justify-between">
                 <div>
                   <p className="font-medium">{patient.name}</p>
-                  <p className="text-sm text-gray-600">{patient.condition}</p>
+                  <p className="text-sm text-charcoal-grey">{patient.condition}</p>
                 </div>
-                <p className="text-sm text-gray-500">Last visit: {patient.lastVisit}</p>
+                <p className="text-sm text-charcoal-grey">Last visit: {patient.lastVisit}</p>
               </div>
             </div>
           ))}
@@ -167,7 +167,7 @@ const Dashboard = () => {
               <div className="flex justify-between">
                 <div>
                   <p className="font-medium">{appointment.patient}</p>
-                  <p className="text-sm text-gray-600">{appointment.date}</p>
+                  <p className="text-sm text-charcoal-grey">{appointment.date}</p>
                 </div>
                 <p className="font-medium">{appointment.time}</p>
               </div>
@@ -182,64 +182,64 @@ const Dashboard = () => {
     <div className="space-y-6">
       <div className="grid md:grid-cols-5 gap-4">
         <div className="bg-white rounded-lg shadow p-4 text-center">
-          <p className="text-2xl font-bold text-blue-600">{dashboardData.stats.totalUsers}</p>
-          <p className="text-sm text-gray-600">Total Users</p>
+          <p className="text-2xl font-bold text-serenity-blue">{dashboardData.stats.totalUsers}</p>
+          <p className="text-sm text-charcoal-grey">Total Users</p>
         </div>
         <div className="bg-white rounded-lg shadow p-4 text-center">
-          <p className="text-2xl font-bold text-green-600">{dashboardData.stats.patients}</p>
-          <p className="text-sm text-gray-600">Patients</p>
+          <p className="text-2xl font-bold text-sage-green">{dashboardData.stats.patients}</p>
+          <p className="text-sm text-charcoal-grey">Patients</p>
         </div>
         <div className="bg-white rounded-lg shadow p-4 text-center">
-          <p className="text-2xl font-bold text-red-600">{dashboardData.stats.donors}</p>
-          <p className="text-sm text-gray-600">Donors</p>
+          <p className="text-2xl font-bold text-deep-red">{dashboardData.stats.donors}</p>
+          <p className="text-sm text-charcoal-grey">Donors</p>
         </div>
         <div className="bg-white rounded-lg shadow p-4 text-center">
-          <p className="text-2xl font-bold text-purple-600">{dashboardData.stats.doctors}</p>
-          <p className="text-sm text-gray-600">Doctors</p>
+          <p className="text-2xl font-bold text-serenity-blue">{dashboardData.stats.doctors}</p>
+          <p className="text-sm text-charcoal-grey">Doctors</p>
         </div>
         <div className="bg-white rounded-lg shadow p-4 text-center">
-          <p className="text-2xl font-bold text-gray-600">{dashboardData.stats.admins}</p>
-          <p className="text-sm text-gray-600">Admins</p>
+          <p className="text-2xl font-bold text-charcoal-grey">{dashboardData.stats.admins}</p>
+          <p className="text-sm text-charcoal-grey">Admins</p>
         </div>
       </div>
 
       <div className="bg-white rounded-lg shadow p-6">
         <h3 className="text-lg font-semibold mb-4">All Users</h3>
         <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-50">
+          <table className="min-w-full divide-y divide-body-light-grey">
+            <thead className="bg-body-light-grey">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-charcoal-grey uppercase tracking-wider">Name</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-charcoal-grey uppercase tracking-wider">
                   Email
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Role</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-charcoal-grey uppercase tracking-wider">Role</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-charcoal-grey uppercase tracking-wider">
                   Joined
                 </th>
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
+            <tbody className="bg-white divide-y divide-body-light-grey">
               {dashboardData.users.map((user) => (
                 <tr key={user.id}>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{user.name}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{user.email}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-charcoal-grey">{user.name}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-charcoal-grey">{user.email}</td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <span
                       className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
                         user.role === "admin"
-                          ? "bg-purple-100 text-purple-800"
+                          ? "bg-serenity-blue/20 text-serenity-blue"
                           : user.role === "doctor"
-                            ? "bg-blue-100 text-blue-800"
+                            ? "bg-serenity-blue/20 text-serenity-blue"
                             : user.role === "donor"
-                              ? "bg-red-100 text-red-800"
-                              : "bg-green-100 text-green-800"
+                              ? "bg-deep-red/20 text-deep-red"
+                              : "bg-sage-green/20 text-sage-green"
                       }`}
                     >
                       {user.role}
                     </span>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-charcoal-grey">
                     {new Date(user.createdAt).toLocaleDateString()}
                   </td>
                 </tr>
@@ -269,10 +269,10 @@ const Dashboard = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">
+        <h1 className="text-3xl font-bold text-charcoal-grey">
           {user.role.charAt(0).toUpperCase() + user.role.slice(1)} Dashboard
         </h1>
-        <p className="text-gray-600">Welcome back, {user.name}!</p>
+        <p className="text-charcoal-grey">Welcome back, {user.name}!</p>
       </div>
 
       {renderDashboard()}

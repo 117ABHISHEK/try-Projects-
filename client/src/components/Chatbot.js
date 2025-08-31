@@ -97,7 +97,7 @@ const Chatbot = () => {
 
   return (
     <div className="bg-white rounded-lg shadow-md h-96 flex flex-col">
-      <div className="bg-purple-600 text-white p-4 rounded-t-lg">
+      <div className="bg-[#0f1b2b] text-white p-4 rounded-t-lg">
         <h3 className="text-lg font-semibold">Mental Health Support Chat</h3>
         <p className="text-sm opacity-90">I'm here to listen and provide emotional support</p>
       </div>
@@ -163,14 +163,14 @@ const Chatbot = () => {
             onChange={(e) => setInputMessage(e.target.value)}
             onKeyPress={handleKeyPress}
             placeholder="Type your message here..."
-            className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none"
+            className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-#0f1b2b-500 resize-none"
             rows="1"
             disabled={loading}
           />
           <button
             onClick={() => sendMessage()}
             disabled={loading || !inputMessage.trim()}
-            className="bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 disabled:opacity-50"
+            className="bg-[#2ecc71] text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-#0f1b2b-500 disabled:opacity-50"
           >
             Send
           </button>

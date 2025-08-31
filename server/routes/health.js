@@ -6,7 +6,7 @@ const { notifyDoctorsForEmergencyRecord } = require("../services/notificationSer
 const router = express.Router()
 
 // Get patient's health records
-router.get("/records/:patientId?", authMiddleware, async (req, res) => {
+router.get("/records/:patientId", authMiddleware, async (req, res) => {
   try {
     let patientId = req.params.patientId
 
@@ -36,7 +36,7 @@ router.get("/records/:patientId?", authMiddleware, async (req, res) => {
 })
 
 // Get hemoglobin trends for charts
-router.get("/trends/:patientId?", authMiddleware, async (req, res) => {
+router.get("/trends/:patientId", authMiddleware, async (req, res) => {
   try {
     let patientId = req.params.patientId
 

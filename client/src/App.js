@@ -1,92 +1,25 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import { AuthProvider } from "./context/AuthContext"
-import Navbar from "./components/Navbar"
-import LandingPage from "./pages/LandingPage"
-import LoginPage from "./pages/LoginPage"
-import RegisterPage from "./pages/RegisterPage"
-import Dashboard from "./pages/Dashboard"
-import ProtectedRoute from "./components/ProtectedRoute"
-import ProfileCompletionRoute from "./components/ProfileCompletionRoute"
-import CompleteProfilePage from "./pages/CompleteProfilePage"
-import ProfilePage from "./pages/ProfilePage"
-import BloodRequestsPage from "./pages/BloodRequestsPage"
-import HealthTrackingPage from "./pages/HealthTrackingPage"
-import HospitalManagementPage from "./pages/HospitalManagementPage"
-import MentalHealthPage from "./pages/MentalHealthPage"
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Welcome, RoleSelection, DonorLogin, PatientLogin, DonorRegister, PatientRegister, HomePage, ProfilePage, DonorPersonalDetails, ContactPage } from './pages';
 
 function App() {
   return (
-    <AuthProvider>
-      <Router>
-        <div className="min-h-screen bg-gray-50">
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
-
-            <Route
-              path="/complete-profile"
-              element={
-                <ProtectedRoute>
-                  <CompleteProfilePage />
-                </ProtectedRoute>
-              }
-            />
-
-            <Route
-              path="/dashboard"
-              element={
-                <ProfileCompletionRoute>
-                  <Dashboard />
-                </ProfileCompletionRoute>
-              }
-            />
-            <Route
-              path="/profile"
-              element={
-                <ProfileCompletionRoute>
-                  <ProfilePage />
-                </ProfileCompletionRoute>
-              }
-            />
-            <Route
-              path="/blood-requests"
-              element={
-                <ProfileCompletionRoute>
-                  <BloodRequestsPage />
-                </ProfileCompletionRoute>
-              }
-            />
-            <Route
-              path="/health-tracking"
-              element={
-                <ProfileCompletionRoute>
-                  <HealthTrackingPage />
-                </ProfileCompletionRoute>
-              }
-            />
-            <Route
-              path="/hospitals"
-              element={
-                <ProfileCompletionRoute>
-                  <HospitalManagementPage />
-                </ProfileCompletionRoute>
-              }
-            />
-            <Route
-              path="/mental-health"
-              element={
-                <ProfileCompletionRoute>
-                  <MentalHealthPage />
-                </ProfileCompletionRoute>
-              }
-            />
-          </Routes>
-        </div>
-      </Router>
-    </AuthProvider>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<Welcome />} />
+        <Route path="/welcome" element={<Welcome />} />
+        <Route path="/role-selection" element={<RoleSelection />} />
+        <Route path="/donor/login" element={<DonorLogin />} />
+        <Route path="/patient/login" element={<PatientLogin />} />
+        <Route path="/donor/register" element={<DonorRegister />} />
+        <Route path="/patient/register" element={<PatientRegister />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/donor/personal-details" element={<DonorPersonalDetails />} />
+        <Route path="/contact" element={<ContactPage />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;

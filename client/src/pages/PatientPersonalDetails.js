@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const DonorPersonalDetails = () => {
+const PatientPersonalDetails = () => {
   const [formData, setFormData] = useState({
     fullName: '',
     dateOfBirth: '',
@@ -14,14 +14,19 @@ const DonorPersonalDetails = () => {
     addressPincode: '',
     emergencyContactName: '',
     emergencyContactNumber: '',
-    occupation: '',
+    maritalStatus: '',
+    allergies: '',
+    chronicIllness: '',
+    primaryDoctor: '',
+    insuranceProvider: '',
+    policyNumber: '',
     idProofNumber: '',
   });
 
   const [isEditing, setIsEditing] = useState(true); // Start in edit mode
 
   useEffect(() => {
-    const savedData = JSON.parse(localStorage.getItem('donorPersonalDetails'));
+    const savedData = JSON.parse(localStorage.getItem('patientPersonalDetails'));
     if (savedData) {
       setFormData(savedData);
     }
@@ -38,7 +43,7 @@ const DonorPersonalDetails = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form Data Submitted:', formData);
-    localStorage.setItem('donorPersonalDetails', JSON.stringify(formData));
+    localStorage.setItem('patientPersonalDetails', JSON.stringify(formData));
     // Here you would typically send the data to a backend API
     setIsEditing(false); // Switch to view mode after submission
   };
@@ -49,8 +54,9 @@ const DonorPersonalDetails = () => {
 
   const genderOptions = ['Male', 'Female', 'Other'];
   const bloodGroupOptions = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
+  const maritalStatusOptions = ['Single', 'Married', 'Other'];
 
-  const renderField = (label, value, name, type = "text", options = []) => (
+  const renderField = (label, value, name, type = "text", options = [], required = true) => (
     <div className="col-span-1">
       <label className="block text-sm font-medium text-white">{label}</label>
       {isEditing ? (
@@ -61,13 +67,24 @@ const DonorPersonalDetails = () => {
             value={value}
             onChange={handleChange}
             className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#5d9cec] focus:border-[#5d9cec] sm:text-sm bg-white"
-            required
+            required={required}
           >
             <option value="">Select {label}</option>
             {options.map((option) => (
               <option key={option} value={option}>{option}</option>
             ))}
           </select>
+        ) : type === "textarea" ? (
+          <textarea
+            id={name}
+            name={name}
+            value={value}
+            onChange={handleChange}
+            placeholder={`Enter your ${label.toLowerCase()}`}
+            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#5d9cec] focus:border-[#5d9cec] sm:text-sm"
+            required={required}
+            rows="3"
+          />
         ) : (
           <input
             type={type}
@@ -77,7 +94,7 @@ const DonorPersonalDetails = () => {
             onChange={handleChange}
             placeholder={`Enter your ${label.toLowerCase()}`}
             className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#5d9cec] focus:border-[#5d9cec] sm:text-sm"
-            required
+            required={required}
           />
         )
       ) : (
@@ -87,9 +104,9 @@ const DonorPersonalDetails = () => {
   );
 
   return (
-    <div className="min-h-screen bg-[#ecf0f1] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-2xl w-full bg-[#0f1b2b] p-8 rounded-lg shadow-lg">
-        <h2 className="text-3xl font-bold text-white mb-8 text-center">Donor Personal Details</h2>
+    <div className="min-h-screen bg-white flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl w-full bg-[#0f1b2b] p-8 rounded-lg shadow-lg">
+        <h2 className="text-3xl font-bold text-white mb-8 text-center">Patient Personal Details</h2>
         
         <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {renderField("Full Name", formData.fullName, "fullName")}
@@ -109,9 +126,14 @@ const DonorPersonalDetails = () => {
             </div>
           </fieldset>
 
-          {renderField("Emergency Contact Person Name", formData.emergencyContactName, "emergencyContactName")}
+          {renderField("Emergency Contact Name", formData.emergencyContactName, "emergencyContactName")}
           {renderField("Emergency Contact Number", formData.emergencyContactNumber, "emergencyContactNumber", "tel")}
-          {renderField("Occupation", formData.occupation, "occupation")}
+          {renderField("Marital Status", formData.maritalStatus, "maritalStatus", "select", maritalStatusOptions)}
+          {renderField("Allergies (if any)", formData.allergies, "allergies", "textarea", [], false)}
+          {renderField("Chronic Illness / Medical Conditions", formData.chronicIllness, "chronicIllness", "textarea", [], false)}
+          {renderField("Primary Doctor / Physician Name", formData.primaryDoctor, "primaryDoctor")}
+          {renderField("Health Insurance Provider", formData.insuranceProvider, "insuranceProvider", "text", [], false)}
+          {renderField("Policy Number", formData.policyNumber, "policyNumber", "text", [], false)}
           {renderField("Aadhar / ID Proof Number", formData.idProofNumber, "idProofNumber")}
 
           {isEditing ? (
@@ -136,4 +158,4 @@ const DonorPersonalDetails = () => {
   );
 };
 
-export default DonorPersonalDetails;
+export default PatientPersonalDetails;

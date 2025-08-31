@@ -61,7 +61,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="bg-blue-600 text-white shadow-lg">
+    <nav className="bg-deep-red text-white shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
@@ -74,7 +74,7 @@ const Navbar = () => {
             {user ? (
               <>
                 {getRoleBasedNavItems().map((item) => (
-                  <Link key={item.path} to={item.path} className="hover:text-blue-200 transition-colors text-sm">
+                  <Link key={item.path} to={item.path} className="hover:text-white/80 transition-colors text-sm">
                     {item.label}
                   </Link>
                 ))}
@@ -87,20 +87,20 @@ const Navbar = () => {
                       className="w-8 h-8 rounded-full object-cover"
                     />
                   ) : (
-                    <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-sm font-semibold">
+                    <div className="w-8 h-8 rounded-full bg-serenity-blue flex items-center justify-center text-sm font-semibold">
                       {user.name.charAt(0).toUpperCase()}
                     </div>
                   )}
                   <div className="text-sm">
                     <div className="font-medium">{user.name}</div>
-                    <div className="text-blue-200 text-xs capitalize">{user.role}</div>
+                    <div className="text-white/80 text-xs capitalize">{user.role}</div>
                   </div>
                 </div>
 
                 {!user.isProfileComplete && (
                   <Link
                     to="/complete-profile"
-                    className="bg-yellow-500 hover:bg-yellow-600 px-3 py-1 rounded text-sm font-medium transition-colors"
+                    className="bg-soft-gold hover:bg-soft-gold/90 px-3 py-1 rounded text-sm font-medium transition-colors"
                   >
                     Complete Profile
                   </Link>
@@ -108,17 +108,17 @@ const Navbar = () => {
 
                 <button
                   onClick={handleLogout}
-                  className="bg-blue-700 hover:bg-blue-800 px-3 py-1 rounded transition-colors text-sm"
+                  className="bg-deep-red/90 hover:bg-deep-red/80 px-3 py-1 rounded transition-colors text-sm"
                 >
                   Logout
                 </button>
               </>
             ) : (
               <>
-                <Link to="/login" className="hover:text-blue-200 transition-colors">
+                <Link to="/login" className="hover:text-white/80 transition-colors">
                   Login
                 </Link>
-                <Link to="/register" className="bg-blue-700 hover:bg-blue-800 px-3 py-1 rounded transition-colors">
+                <Link to="/register" className="bg-deep-red/90 hover:bg-deep-red/80 px-3 py-1 rounded transition-colors">
                   Register
                 </Link>
               </>

@@ -13,6 +13,12 @@ const config: Config = {
   theme: {
   	extend: {
   		colors: {
+'deep-red': '#c0392b',
+'sage-green': '#2ecc71',
+'serenity-blue': '#5d9cec',
+'soft-gold': '#f1c40f',
+'charcoal-grey': '#34495e',
+'body-light-grey': '#ecf0f1',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
