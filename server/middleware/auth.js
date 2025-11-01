@@ -16,6 +16,11 @@ const authMiddleware = async (req, res, next) => {
       return res.status(401).json({ message: "Token is not valid" })
     }
 
+    // Check if user account is active
+    if (!user.isActive) {
+      return res.status(403).json({ message: "Account suspended. Please contact support." })
+    }
+
     req.user = user
     next()
   } catch (error) {
