@@ -141,26 +141,40 @@ try-Projects-/
 └── package.json            # Root package with concurrent scripts
 ```
 
-## API Endpoints
+## 📡 API Endpoints
+
+**Base URL:** `http://localhost:5000/api`
 
 ### Authentication
-- `POST /api/auth/register` - Register new user
-- `POST /api/auth/login` - Login user
-- `POST /api/auth/logout` - Logout user
-- `GET /api/auth/me` - Get current user profile
+- `POST /auth/register` - Register new user
+- `POST /auth/login` - User login (sets JWT cookie)
+- `POST /auth/logout` - User logout
+- `GET /auth/me` - Get current user info
 
-### Protected Routes
-- `GET /api/patient/dashboard` - Patient dashboard data
-- `GET /api/donor/dashboard` - Donor dashboard data
-- `GET /api/doctor/dashboard` - Doctor dashboard data
-- `GET /api/admin/dashboard` - Admin dashboard data
+### Appointments
+- `POST /appointments` - Create appointment
+- `GET /appointments` - Get appointments (filtered by role)
+- `GET /appointments/:id` - Get single appointment
+- `PUT /appointments/:id` - Update appointment
+- `DELETE /appointments/:id` - Cancel appointment
 
-## User Roles
+### Chatbot
+- `POST /chatbot/message` - Send message to ThalAI chatbot
+- `GET /chatbot/history` - Get chat history
+- `DELETE /chatbot/session/:id` - Delete chat session
 
-1. **Patient**: Track health, view donor requests
-2. **Donor**: View donation history, see blood requests
-3. **Doctor**: Access patient records, manage appointments
-4. **Admin**: Manage all users, view platform statistics
+### AI Prediction
+- `POST /ai/predict-donor` - Get AI donor predictions
+- `GET /ai/health` - Check AI service status
+
+### Blood Donors & Patients
+- `POST /donor` - Create donor profile
+- `GET /donor/search?bloodType=O+&city=Mumbai` - Search donors
+- `POST /donor/:id/donation` - Record donation
+- `POST /patient` - Create patient profile
+- `POST /patient/:id/health-log` - Add health log
+
+See `docs/api_reference.md` for complete API documentation.
 
 ## Security Features
 
