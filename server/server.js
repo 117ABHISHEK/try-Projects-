@@ -43,6 +43,9 @@ app.use("/api/health", healthRoutes)
 app.use("/api/hospitals", hospitalRoutes)
 app.use("/api/mental-health", mentalHealthRoutes)
 app.use("/api/profile", profileRoutes)
+app.use("/api/chatbot", chatbotRoutes)
+app.use("/api/appointments", appointmentRoutes)
+app.use("/api/ai", aiRoutes)
 
 // Connect to MongoDB
 mongoose
