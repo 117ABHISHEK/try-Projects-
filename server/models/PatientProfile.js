@@ -35,11 +35,19 @@ const patientProfileSchema = new mongoose.Schema(
     healthLogs: [
       {
         hemoglobin: Number,
+        ferritinLevel: Number,
         date: { type: Date, default: Date.now },
         notes: String,
         doctorId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
       },
     ],
+    nextTransfusionDate: {
+      type: Date,
+    },
+    transfusionFrequency: {
+      type: Number, // Days between transfusions
+      default: 21, // Default 3 weeks
+    },
   },
   {
     timestamps: true,
