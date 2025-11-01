@@ -1,6 +1,8 @@
-# ThalAI Guardian - MERN Stack Application
+# ThalAI Guardian
 
-A comprehensive Thalassemia management and blood donation platform built with the MERN stack.
+**An Intelligent Lifeline for Thalassemia Warriors**
+
+A comprehensive full-stack web application designed to support Thalassemia patients, blood donors, doctors, and hospitals. ThalAI Guardian facilitates blood donor matching, appointment scheduling, health tracking, and provides AI-powered donor predictions with an intelligent chatbot.
 
 ## Features
 
