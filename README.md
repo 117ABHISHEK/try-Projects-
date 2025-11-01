@@ -37,12 +37,27 @@ A comprehensive full-stack web application designed to support Thalassemia patie
 - **Hospitals**: Manage blood bank inventory, appointments
 - **Admins**: System monitoring and user management
 
-## Tech Stack
+## 🛠 Tech Stack
 
-- **Frontend**: React 18, React Router v6, Context API, Axios, TailwindCSS
-- **Backend**: Node.js, Express.js, JWT, bcryptjs, helmet, cors
-- **Database**: MongoDB with Mongoose ODM
-- **Authentication**: JWT tokens stored in HttpOnly cookies
+### Frontend
+- **React** 18.2.0 - Component-based UI
+- **React Router** 6.8.1 - Client-side routing
+- **Bootstrap** 5 - Responsive design
+- **Axios** - HTTP client
+- **Recharts** - Data visualization
+
+### Backend
+- **Node.js** & **Express.js** 4.18.2
+- **MongoDB** & **Mongoose** 8.0.3
+- **JWT** - Authentication with HttpOnly cookies
+- **Bcrypt** - Password hashing (10 salt rounds)
+- **Twilio** - SMS notifications (optional)
+- **Nodemailer** - Email notifications (optional)
+
+### AI Module
+- **Python** 3.8+ & **Flask** 2.3.0
+- Rule-based donor prediction algorithm
+- Compatible with scikit-learn for future ML enhancements
 
 ## Installation
 
