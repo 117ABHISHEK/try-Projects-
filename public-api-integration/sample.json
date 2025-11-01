@@ -1,0 +1,221 @@
+{
+  "bloodBanks": [
+    {
+      "id": "BB001",
+      "name": "City Blood Bank",
+      "address": {
+        "street": "123 Main Street",
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "zipCode": "400001"
+      },
+      "phone": "+91-22-12345678",
+      "email": "citybloodbank@example.com",
+      "availability": {
+        "A+": 15,
+        "A-": 5,
+        "B+": 20,
+        "B-": 3,
+        "O+": 25,
+        "O-": 7,
+        "AB+": 10,
+        "AB-": 2
+      },
+      "latitude": 19.076,
+      "longitude": 72.8777,
+      "emergencyAvailable": true
+    },
+    {
+      "id": "BB002",
+      "name": "Central Hospital Blood Bank",
+      "address": {
+        "street": "456 Hospital Road",
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "zipCode": "400012"
+      },
+      "phone": "+91-22-23456789",
+      "email": "centralhospital@example.com",
+      "availability": {
+        "A+": 12,
+        "A-": 4,
+        "B+": 18,
+        "B-": 2,
+        "O+": 22,
+        "O-": 6,
+        "AB+": 8,
+        "AB-": 1
+      },
+      "latitude": 19.0896,
+      "longitude": 72.8656,
+      "emergencyAvailable": true
+    },
+    {
+      "id": "BB003",
+      "name": "Delhi Blood Services",
+      "address": {
+        "street": "789 Medical Center",
+        "city": "New Delhi",
+        "state": "Delhi",
+        "zipCode": "110001"
+      },
+      "phone": "+91-11-34567890",
+      "email": "delhi.blood@example.com",
+      "availability": {
+        "A+": 20,
+        "A-": 8,
+        "B+": 25,
+        "B-": 5,
+        "O+": 30,
+        "O-": 10,
+        "AB+": 12,
+        "AB-": 3
+      },
+      "latitude": 28.6139,
+      "longitude": 77.209,
+      "emergencyAvailable": true
+    },
+    {
+      "id": "BB004",
+      "name": "Bangalore Community Blood Center",
+      "address": {
+        "street": "321 Tech Park Road",
+        "city": "Bangalore",
+        "state": "Karnataka",
+        "zipCode": "560001"
+      },
+      "phone": "+91-80-45678901",
+      "email": "bangalore.blood@example.com",
+      "availability": {
+        "A+": 18,
+        "A-": 6,
+        "B+": 22,
+        "B-": 4,
+        "O+": 28,
+        "O-": 9,
+        "AB+": 11,
+        "AB-": 2
+      },
+      "latitude": 12.9716,
+      "longitude": 77.5946,
+      "emergencyAvailable": true
+    },
+    {
+      "id": "BB005",
+      "name": "Chennai Blood Bank",
+      "address": {
+        "street": "654 Marina Road",
+        "city": "Chennai",
+        "state": "Tamil Nadu",
+        "zipCode": "600001"
+      },
+      "phone": "+91-44-56789012",
+      "email": "chennai.blood@example.com",
+      "availability": {
+        "A+": 16,
+        "A-": 5,
+        "B+": 19,
+        "B-": 3,
+        "O+": 24,
+        "O-": 8,
+        "AB+": 9,
+        "AB-": 2
+      },
+      "latitude": 13.0827,
+      "longitude": 80.2707,
+      "emergencyAvailable": true
+    }
+  ],
+  "donors": [
+    {
+      "donorId": "ERK001",
+      "bloodType": "O+",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "lastDonationDate": "2024-10-15",
+      "availableForEmergency": true,
+      "registrationDate": "2023-01-20"
+    },
+    {
+      "donorId": "ERK002",
+      "bloodType": "A+",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "lastDonationDate": "2024-09-20",
+      "availableForEmergency": true,
+      "registrationDate": "2022-08-15"
+    },
+    {
+      "donorId": "ERK003",
+      "bloodType": "B+",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "lastDonationDate": "2024-08-10",
+      "availableForEmergency": true,
+      "registrationDate": "2023-03-10"
+    },
+    {
+      "donorId": "ERK004",
+      "bloodType": "AB+",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "lastDonationDate": "2024-07-25",
+      "availableForEmergency": false,
+      "registrationDate": "2023-05-18"
+    },
+    {
+      "donorId": "ERK005",
+      "bloodType": "O-",
+      "city": "New Delhi",
+      "state": "Delhi",
+      "lastDonationDate": "2024-10-01",
+      "availableForEmergency": true,
+      "registrationDate": "2022-11-12"
+    },
+    {
+      "donorId": "ERK006",
+      "bloodType": "A-",
+      "city": "New Delhi",
+      "state": "Delhi",
+      "lastDonationDate": "2024-09-15",
+      "availableForEmergency": true,
+      "registrationDate": "2023-02-28"
+    },
+    {
+      "donorId": "ERK007",
+      "bloodType": "B-",
+      "city": "Bangalore",
+      "state": "Karnataka",
+      "lastDonationDate": "2024-08-22",
+      "availableForEmergency": true,
+      "registrationDate": "2023-06-05"
+    },
+    {
+      "donorId": "ERK008",
+      "bloodType": "AB-",
+      "city": "Bangalore",
+      "state": "Karnataka",
+      "lastDonationDate": "2024-07-30",
+      "availableForEmergency": false,
+      "registrationDate": "2022-12-20"
+    },
+    {
+      "donorId": "ERK009",
+      "bloodType": "O+",
+      "city": "Chennai",
+      "state": "Tamil Nadu",
+      "lastDonationDate": "2024-10-10",
+      "availableForEmergency": true,
+      "registrationDate": "2023-04-15"
+    },
+    {
+      "donorId": "ERK010",
+      "bloodType": "A+",
+      "city": "Chennai",
+      "state": "Tamil Nadu",
+      "lastDonationDate": "2024-09-05",
+      "availableForEmergency": true,
+      "registrationDate": "2022-09-22"
+    }
+  ]
+}
