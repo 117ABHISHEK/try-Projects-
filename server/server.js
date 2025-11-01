@@ -15,6 +15,9 @@ const healthRoutes = require("./routes/health")
 const hospitalRoutes = require("./routes/hospitals")
 const mentalHealthRoutes = require("./routes/mentalHealth")
 const profileRoutes = require("./routes/profile")
+const chatbotRoutes = require("./routes/chatbot")
+const appointmentRoutes = require("./routes/appointments")
+const aiRoutes = require("./routes/ai")
 
 const app = express()
 
