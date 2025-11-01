@@ -39,10 +39,40 @@ const donorProfileSchema = new mongoose.Schema(
         units: { type: Number, default: 1 },
       },
     ],
+    nextEligibleDate: {
+      type: Date,
+    },
+    totalDonations: {
+      type: Number,
+      default: 0,
+    },
+    notificationPreferences: {
+      sms: { type: Boolean, default: true },
+      email: { type: Boolean, default: true },
+    },
   },
   {
     timestamps: true,
   },
 )
+
+// Virtual to calculate next eligible date based on last donation
+donorProfileSchema.pre("save", function (next) {
+  // Calculate totalDonations from donationHistory
+  this.totalDonations = this.donationHistory.filter(
+    (donation) => donation.status === "completed"
+  ).length
+
+  // Calculate nextEligibleDate (56 days after last donation)
+  if (this.lastDonationDate) {
+    const eligibleDate = new Date(this.lastDonationDate)
+    eligibleDate.setDate(eligibleDate.getDate() + 56)
+    this.nextEligibleDate = eligibleDate
+  } else {
+    this.nextEligibleDate = new Date() // Eligible now if never donated
+  }
+
+  next()
+})
 
 module.exports = mongoose.model("DonorProfile", donorProfileSchema)
