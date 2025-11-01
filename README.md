@@ -216,14 +216,34 @@ After setup, test these user flows:
 7. Chat with ThalAI bot about Thalassemia
 8. View dashboard with stats and upcoming appointments
 
-## Contributing
+## 🤝 Contributing
 
+Contributions are welcome! Please follow these steps:
 1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-## License
+## 📝 License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 💬 Support
+
+For issues, questions, or suggestions:
+- Create an issue in the repository
+- Check `docs/setup_guide.md` for common problems
+- See `docs/api_reference.md` for API documentation
+
+## 🙏 Acknowledgments
+
+- e-RaktKosh for blood bank data inspiration
+- Thalassemia patients and healthcare workers for insights
+- Open-source community for amazing tools and libraries
+
+---
+
+**Made with ❤️ for Thalassemia Warriors**
+
+Generated with Compyle
