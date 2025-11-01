@@ -4,13 +4,38 @@
 
 A comprehensive full-stack web application designed to support Thalassemia patients, blood donors, doctors, and hospitals. ThalAI Guardian facilitates blood donor matching, appointment scheduling, health tracking, and provides AI-powered donor predictions with an intelligent chatbot.
 
-## Features
+## ✨ Key Features
 
-- **User Authentication**: JWT-based authentication with role-based access control
-- **Multi-Role System**: Support for patients, donors, doctors, and admins
-- **Role-Based Dashboards**: Customized interfaces for each user type
-- **Secure Backend**: Protected routes with middleware authentication
-- **Modern UI**: Clean and responsive design with TailwindCSS
+### 🩸 Blood Donor Matching
+- Search compatible donors by blood type and location
+- AI-powered donor predictions based on availability and compatibility
+- Integration with e-RaktKosh government blood bank data (mock)
+- Emergency blood request notifications via SMS/Email
+
+### 📅 Appointment Scheduling
+- Book transfusions, checkups, and counseling sessions
+- Calendar view for managing appointments
+- Automated reminders for upcoming appointments
+- Multi-role support (patients, doctors, hospitals)
+
+### 📊 Health Tracking
+- Log hemoglobin and ferritin levels
+- Visualize health trends with interactive charts
+- Doctor access to patient health records
+- Automated health alerts
+
+### 🤖 ThalAI Chatbot
+- Rule-based AI chatbot for Thalassemia information
+- Instant answers about symptoms, treatment, diet, medication
+- Contextual suggestions and follow-up questions
+- 24/7 availability
+
+### 👥 Multi-Role Support
+- **Patients**: Manage health, find donors, book appointments
+- **Donors**: Track donations, respond to blood requests
+- **Doctors**: Manage patients, add health records
+- **Hospitals**: Manage blood bank inventory, appointments
+- **Admins**: System monitoring and user management
 
 ## Tech Stack
 
