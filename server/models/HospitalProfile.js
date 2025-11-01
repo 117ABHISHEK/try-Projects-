@@ -48,6 +48,15 @@ const hospitalProfileSchema = new mongoose.Schema(
         registeredDonors: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
       },
     ],
+    operatingHours: {
+      openTime: { type: String, default: "08:00" }, // Format: "HH:MM"
+      closeTime: { type: String, default: "18:00" }, // Format: "HH:MM"
+      emergencyAvailable: { type: Boolean, default: true }, // 24/7 for emergencies
+    },
+    bloodBankAvailable: {
+      type: Boolean,
+      default: true,
+    },
   },
   {
     timestamps: true,
