@@ -110,25 +110,35 @@ npm run dev:no-ai
 - **Backend API**: http://localhost:5000
 - **AI Module**: http://localhost:5001
 
-## Project Structure
+## 📁 Project Structure
 
 ```
-thalai-guardian/
+try-Projects-/
 ├── client/                 # React frontend
-│   ├── public/
 │   ├── src/
-│   │   ├── components/     # Reusable components
-│   │   ├── context/        # React Context (Auth)
-│   │   ├── pages/          # Page components
-│   │   └── App.js
-│   └── package.json
-├── server/                 # Express backend
-│   ├── middleware/         # Auth & role middleware
-│   ├── models/            # Mongoose models
-│   ├── routes/            # API routes
-│   ├── server.js          # Entry point
-│   └── package.json
-└── package.json           # Root package.json
+│   │   ├── pages/         # Page components (Dashboard, Profile, etc.)
+│   │   ├── components/    # Reusable UI components
+│   │   ├── context/       # React Context (Auth)
+│   │   └── utils/         # Utility functions (API client)
+│   └── public/            # Static assets
+├── server/                # Express.js backend
+│   ├── routes/           # API routes (auth, appointments, chatbot, AI, etc.)
+│   ├── models/           # Mongoose models (User, DonorProfile, etc.)
+│   ├── services/         # Business logic (chatbot, notifications, e-RaktKosh)
+│   ├── middleware/       # Auth and role-based middleware
+│   └── server.js         # Server entry point
+├── ai-module/            # Python Flask AI service
+│   ├── routes/          # Prediction routes
+│   ├── utils/           # Data preprocessing (compatibility scoring)
+│   ├── model/           # ML models (placeholder)
+│   └── app.py           # Flask entry point
+├── public-api-integration/  # External API utilities
+│   └── sample.json         # Mock e-RaktKosh blood bank data
+├── docs/                    # Documentation
+│   ├── setup_guide.md      # Detailed installation guide
+│   ├── api_reference.md    # Complete API documentation
+│   └── project_overview.md # Architecture and features
+└── package.json            # Root package with concurrent scripts
 ```
 
 ## API Endpoints
