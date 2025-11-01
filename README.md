@@ -176,39 +176,45 @@ try-Projects-/
 
 See `docs/api_reference.md` for complete API documentation.
 
-## Security Features
+## 🔒 Security Features
 
-- Password hashing with bcryptjs
-- JWT tokens stored in HttpOnly cookies
-- CORS protection
-- Helmet for security headers
-- Role-based route protection
-- Input validation and sanitization
+- **JWT Authentication**: HttpOnly cookies for XSS protection
+- **Password Hashing**: Bcrypt with 10 salt rounds
+- **Role-Based Access Control**: 5 user roles with granular permissions
+- **Account Suspension**: isActive field for account management
+- **Helmet**: Security headers for Express
+- **CORS**: Restricted to client origin
+- **Input Validation**: Comprehensive validation on all endpoints
 
-## Development
+## 🛠 Available Scripts
 
-### Running Individual Services
-
-**Server only:**
 ```bash
-npm run server
+npm run dev              # Start all services (backend, frontend, AI)
+npm run dev:no-ai        # Start without AI module
+npm run install:all      # Install all dependencies
+npm run server           # Start backend only
+npm run client           # Start frontend only
+npm run ai               # Start AI module only
 ```
 
-**Client only:**
-```bash
-npm run client
-```
+## 📚 Documentation
 
-### Environment Variables
+- **Setup Guide**: `docs/setup_guide.md` - Detailed installation instructions
+- **API Reference**: `docs/api_reference.md` - Complete API documentation
+- **Project Overview**: `docs/project_overview.md` - Architecture and features
+- **AI Module**: `ai-module/README.md` - AI service documentation
 
-Create a `.env` file in the `server` directory with:
+## 🧪 Testing the Application
 
-```env
-NODE_ENV=development
-PORT=5000
-MONGODB_URI=mongodb://localhost:27017/thalai-guardian
-JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
-```
+After setup, test these user flows:
+1. Register as a patient with email/password
+2. Complete patient profile with blood type and medical history
+3. Search for blood donors by type and location
+4. Create an emergency blood request
+5. Book a transfusion appointment
+6. Add health records (hemoglobin, ferritin levels)
+7. Chat with ThalAI bot about Thalassemia
+8. View dashboard with stats and upcoming appointments
 
 ## Contributing
 
