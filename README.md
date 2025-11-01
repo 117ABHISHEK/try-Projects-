@@ -59,46 +59,56 @@ A comprehensive full-stack web application designed to support Thalassemia patie
 - Rule-based donor prediction algorithm
 - Compatible with scikit-learn for future ML enhancements
 
-## Installation
+## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js (v14 or higher)
-- MongoDB (running locally or MongoDB Atlas)
-- npm or yarn
+- Node.js 16+ and npm
+- MongoDB (local or Atlas)
+- Python 3.8+ (for AI module)
 
-### Setup Instructions
+### Installation
 
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd thalai-guardian
-   ```
+1. **Clone and install all dependencies:**
+```bash
+git clone <repository-url>
+cd try-Projects-
+npm run install:all
+```
 
-2. **Install dependencies**
-   ```bash
-   npm run install-all
-   ```
+2. **Configure environment variables:**
+```bash
+# Backend
+cd server
+cp .env.example .env
+# Edit .env: Set MONGODB_URI and JWT_SECRET (min 32 chars)
 
-3. **Environment Setup**
-   - Copy `server/.env.example` to `server/.env`
-   - Update the environment variables:
-     ```
-     NODE_ENV=development
-     PORT=5000
-     MONGODB_URI=mongodb://localhost:27017/thalai-guardian
-     JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
-     ```
+# Frontend
+cd ../client
+cp .env.example .env
 
-4. **Start MongoDB**
-   - Make sure MongoDB is running on your system
-   - Default connection: `mongodb://localhost:27017/thalai-guardian`
+# AI Module
+cd ../ai-module
+cp .env.example .env
+python3 -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+pip install -r requirements.txt
+```
 
-5. **Run the application**
-   ```bash
-   npm run dev
-   ```
-   
-   This will start both the server (port 5000) and client (port 3000) concurrently.
+3. **Start all services:**
+```bash
+# From root directory
+npm run dev
+```
+
+Or run without AI module:
+```bash
+npm run dev:no-ai
+```
+
+4. **Access the application:**
+- **Frontend**: http://localhost:3000
+- **Backend API**: http://localhost:5000
+- **AI Module**: http://localhost:5001
 
 ## Project Structure
 
