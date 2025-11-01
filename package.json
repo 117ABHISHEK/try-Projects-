@@ -4,9 +4,16 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "dev": "next dev",
+    "next:dev": "next dev",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "server": "cd server && node server.js",
+    "server:dev": "cd server && nodemon server.js",
+    "client": "cd client && npm start",
+    "ai": "cd ai-module && python app.py",
+    "dev": "concurrently \"npm run server:dev\" \"npm run client\" \"npm run ai\"",
+    "dev:no-ai": "concurrently \"npm run server:dev\" \"npm run client\"",
+    "install:all": "npm install && cd server && npm install && cd ../client && npm install"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
