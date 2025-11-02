@@ -152,9 +152,4 @@ function RoleBasedDashboard() {
   }
 }
 
-// Chatbot Component
-function Chatbot() {
-  return <ChatbotPage />;
-}
-
 export default App;
