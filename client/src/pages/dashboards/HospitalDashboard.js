@@ -1,0 +1,11 @@
+import React from 'react';
+
+function HospitalDashboard() {
+  return (
+    <div>
+      <h1>Hospital Dashboard</h1>
+    </div>
+  );
+}
+
+export default HospitalDashboard;
