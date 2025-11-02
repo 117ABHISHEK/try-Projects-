@@ -111,7 +111,6 @@ function App() {
     </AuthProvider>
   );
 }
-}
 
 // Layout wrapper for protected pages
 function DashboardLayout({ children }) {
