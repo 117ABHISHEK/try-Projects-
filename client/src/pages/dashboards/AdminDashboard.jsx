@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
-import { FaUsers, FaCog, FaChartBar, FaShieldAlt, FaBell } from 'react-icons/fa';
+import { FaUsers, FaCog, FaChartBar, FaShieldAlt, FaBell, FaHeart, FaHospital, FaUserMd } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const AdminDashboard = () => {
