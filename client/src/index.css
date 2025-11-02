@@ -1,33 +1,293 @@
-.App {
-  text-align: center;
+/* ThalAI Guardian - Bootstrap 5 CSS */
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+/* Custom ThalAI Guardian Medical Theme */
+:root {
+  /* Medical Theme Colors */
+  --thali-primary-red: #dc3545;
+  --thali-primary-blue: #1976d2;
+  --thali-success-green: #28a745;
+  --thali-warning-yellow: #ffc107;
+  --thali-background-light: #f5f5f5;
+  --thali-white: #ffffff;
+  --thali-text-primary: #333333;
+  --thali-text-secondary: #666666;
+
+  /* Gradient for headers */
+  --thali-gradient: linear-gradient(135deg, var(--thali-primary-blue), var(--thali-primary-red));
+
+  /* Custom shadows */
+  --thali-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --thali-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  --thali-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Global Styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--thali-background-light);
+  color: var(--thali-text-primary);
+  line-height: 1.6;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Custom Bootstrap Override Colors */
+.bg-primary {
+  background-color: var(--thali-primary-blue) !important;
+}
+
+.bg-danger {
+  background-color: var(--thali-primary-red) !important;
+}
+
+.bg-success {
+  background-color: var(--thali-success-green) !important;
+}
+
+.bg-warning {
+  background-color: var(--thali-warning-yellow) !important;
+}
+
+.text-primary {
+  color: var(--thali-primary-blue) !important;
+}
+
+.text-danger {
+  color: var(--thali-primary-red) !important;
+}
+
+/* Navigation */
+.navbar-thali {
+  background: var(--thali-gradient) !important;
+  box-shadow: var(--thali-shadow);
+}
+
+.navbar-thali .navbar-brand {
+  color: white !important;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.navbar-thali .nav-link {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar-thali .nav-link:hover {
+  color: white !important;
+}
+
+/* Cards */
+.card-thali {
+  border: none;
+  border-radius: 15px;
+  box-shadow: var(--thali-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.card-thali:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--thali-shadow-lg);
+}
+
+.card-thali .card-header {
+  background: var(--thali-gradient);
+  color: white;
+  font-weight: 600;
+  border: none;
+}
+
+/* Buttons */
+.btn-thali-primary {
+  background: var(--thali-gradient);
+  border: none;
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: var(--thali-shadow-sm);
+}
+
+.btn-thali-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--thali-shadow);
+  background: linear-gradient(135deg, var(--thali-primary-red), var(--thali-primary-blue));
+}
+
+.btn-thali-danger {
+  background-color: var(--thali-primary-red);
+  border: none;
+  color: white;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-thali-danger:hover {
+  background-color: #c82333;
+  transform: translateY(-2px);
+  box-shadow: var(--thali-shadow);
+}
+
+/* Forms */
+.form-control-thali {
+  border-radius: 10px;
+  border: 2px solid #e9ecef;
+  padding: 0.75rem 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control-thali:focus {
+  border-color: var(--thali-primary-blue);
+  box-shadow: 0 0 0 0.2rem rgba(25, 118, 210, 0.25);
+}
+
+/* Dashboard Cards */
+.dashboard-stat-card {
+  background: white;
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: var(--thali-shadow);
+  border-left: 5px solid;
+  transition: transform 0.3s ease;
+}
+
+.dashboard-stat-card:hover {
+  transform: translateY(-3px);
+}
+
+.dashboard-stat-card.primary {
+  border-left-color: var(--thali-primary-blue);
+}
+
+.dashboard-stat-card.danger {
+  border-left-color: var(--thali-primary-red);
+}
+
+.dashboard-stat-card.success {
+  border-left-color: var(--thali-success-green);
+}
+
+.dashboard-stat-card.warning {
+  border-left-color: var(--thali-warning-yellow);
+}
+
+/* Alerts */
+.alert-thali {
+  border-radius: 10px;
+  border: none;
+  font-weight: 500;
+}
+
+/* Badges */
+.badge-thali {
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.blood-type-badge {
+  background: var(--thali-primary-red);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.875rem;
+}
+
+/* Loading Spinner */
+.spinner-thali {
+  width: 3rem;
+  height: 3rem;
+  border-width: 0.3rem;
+}
+
+/* Footer */
+.footer-thali {
+  background: var(--thali-gradient);
+  color: white;
+  padding: 3rem 0 1rem;
+  margin-top: auto;
+}
+
+/* Hero Section */
+.hero-thali {
+  background: var(--thali-gradient);
+  color: white;
+  padding: 5rem 0;
+  border-radius: 0 0 50px 50px;
+}
+
+/* Chatbot */
+.chatbot-thali {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1050;
+}
+
+.chatbot-thali .chat-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--thali-gradient);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  box-shadow: var(--thali-shadow);
+  transition: all 0.3s ease;
+}
+
+.chatbot-thali .chat-button:hover {
+  transform: scale(1.1);
+  box-shadow: var(--thali-shadow-lg);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .hero-thali {
+    padding: 3rem 0;
+    border-radius: 0 0 30px 30px;
+  }
+
+  .card-thali {
+    margin-bottom: 1rem;
+  }
+
+  .btn-thali-primary {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  padding: 20px;
-  color: white;
+/* Animation Classes */
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(20px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
   }
 }
