@@ -106,40 +106,11 @@ function App() {
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </div>
-
-          {/* Chatbot - Fixed Position */}
-          <Routes>
-            <Route path="/dashboard" element={
-              <ProtectedRoute>
-                <ChatbotButton />
-              </ProtectedRoute>
-            } />
-            <Route path="/profile" element={
-              <ProtectedRoute>
-                <ChatbotButton />
-              </ProtectedRoute>
-            } />
-            <Route path="/health-tracking" element={
-              <ProtectedRoute>
-                <ChatbotButton />
-              </ProtectedRoute>
-            } />
-            <Route path="/appointments" element={
-              <ProtectedRoute>
-                <ChatbotButton />
-              </ProtectedRoute>
-            } />
-            <Route path="/blood-requests" element={
-              <ProtectedRoute>
-                <ChatbotButton />
-              </ProtectedRoute>
-            } />
-            <Route path="/blood-donor-finder" element={
-              <ProtectedRoute>
-                <ChatbotButton />
-              </ProtectedRoute>
-            } />
-          </Routes>
+        </div>
+      </Router>
+    </AuthProvider>
+  );
+}
         </div>
       </Router>
     </AuthProvider>
