@@ -4,6 +4,7 @@ import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import { useAuth } from './context/AuthContext';
 
 // Page Components
 import WelcomePage from './pages/WelcomePage';
@@ -37,60 +38,74 @@ function App() {
       <Router>
         <div className="d-flex flex-column min-vh-100">
           {/* Public Routes */}
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/welcome" element={<WelcomePage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
-            <Route path="/role-selection" element={<RoleSelectionPage />} />
-            <Route path="/contact" element={<ContactPage />} />
+          <div className="d-flex flex-column min-vh-100">
+            <Routes>
+              {/* Public Routes - No Navbar/Footer */}
+              <Route path="/" element={<HomePage />} />
+              <Route path="/welcome" element={<WelcomePage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+              <Route path="/role-selection" element={<RoleSelectionPage />} />
 
-            {/* Protected Routes */}
-            <Route path="/dashboard" element={
-              <ProtectedRoute>
-                <DashboardSwitch />
-              </ProtectedRoute>
-            } />
+              {/* Protected Routes - With Navbar/Footer */}
+              <Route path="/dashboard" element={
+                <ProtectedRoute>
+                  <DashboardLayout>
+                    <DashboardSwitch />
+                  </DashboardLayout>
+                </ProtectedRoute>
+              } />
 
-            <Route path="/profile" element={
-              <ProtectedRoute>
-                <ProfilePage />
-              </ProtectedRoute>
-            } />
+              <Route path="/profile" element={
+                <ProtectedRoute>
+                  <DashboardLayout>
+                    <ProfilePage />
+                  </DashboardLayout>
+                </ProtectedRoute>
+              } />
 
-            <Route path="/health-tracking" element={
-              <ProtectedRoute>
-                <HealthTrackingPage />
-              </ProtectedRoute>
-            } />
+              <Route path="/health-tracking" element={
+                <ProtectedRoute>
+                  <DashboardLayout>
+                    <HealthTrackingPage />
+                  </DashboardLayout>
+                </ProtectedRoute>
+              } />
 
-            <Route path="/appointments" element={
-              <ProtectedRoute>
-                <AppointmentCalendarPage />
-              </ProtectedRoute>
-            } />
+              <Route path="/appointments" element={
+                <ProtectedRoute>
+                  <DashboardLayout>
+                    <AppointmentCalendarPage />
+                  </DashboardLayout>
+                </ProtectedRoute>
+              } />
 
-            <Route path="/blood-requests" element={
-              <ProtectedRoute>
-                <BloodRequestsPage />
-              </ProtectedRoute>
-            } />
+              <Route path="/blood-requests" element={
+                <ProtectedRoute>
+                  <DashboardLayout>
+                    <BloodRequestsPage />
+                  </DashboardLayout>
+                </ProtectedRoute>
+              } />
 
-            <Route path="/blood-donor-finder" element={
-              <ProtectedRoute>
-                <BloodDonorFinderPage />
-              </ProtectedRoute>
-            } />
+              <Route path="/blood-donor-finder" element={
+                <ProtectedRoute>
+                  <DashboardLayout>
+                    <BloodDonorFinderPage />
+                  </DashboardLayout>
+                </ProtectedRoute>
+              } />
 
-            <Route path="/chatbot" element={
-              <ProtectedRoute>
-                <ChatbotPage />
-              </ProtectedRoute>
-            } />
+              <Route path="/contact" element={
+                <DashboardLayout>
+                  <ContactPage />
+                </DashboardLayout>
+              } />
 
-            {/* 404 Page */}
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
+              {/* 404 Page */}
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </div>
 
           {/* Chatbot - Fixed Position */}
           <Routes>
