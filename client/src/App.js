@@ -1,25 +1,167 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Welcome, RoleSelection, DonorLogin, PatientLogin, DonorRegister, PatientRegister, HomePage, ProfilePage, DonorPersonalDetails, ContactPage } from './pages';
+import { AuthProvider } from './context/AuthContext';
+import ProtectedRoute from './components/ProtectedRoute';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+
+// Page Components
+import WelcomePage from './pages/WelcomePage';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import RoleSelectionPage from './pages/RoleSelectionPage';
+import HomePage from './pages/HomePage';
+import ProfilePage from './pages/ProfilePage';
+import ContactPage from './pages/ContactPage';
+
+// Dashboard Components
+import PatientDashboard from './pages/dashboards/PatientDashboard';
+import DonorDashboard from './pages/dashboards/DonorDashboard';
+import DoctorDashboard from './pages/dashboards/DoctorDashboard';
+import HospitalDashboard from './pages/dashboards/HospitalDashboard';
+import AdminDashboard from './pages/dashboards/AdminDashboard';
+
+// Specialized Pages
+import BloodDonorFinderPage from './pages/BloodDonorFinderPage';
+import AppointmentCalendarPage from './pages/AppointmentCalendarPage';
+import ChatbotPage from './pages/ChatbotPage';
+import HealthTrackingPage from './pages/HealthTrackingPage';
+import BloodRequestsPage from './pages/BloodRequestsPage';
+
+// Error Pages
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Welcome />} />
-        <Route path="/welcome" element={<Welcome />} />
-        <Route path="/role-selection" element={<RoleSelection />} />
-        <Route path="/donor/login" element={<DonorLogin />} />
-        <Route path="/patient/login" element={<PatientLogin />} />
-        <Route path="/donor/register" element={<DonorRegister />} />
-        <Route path="/patient/register" element={<PatientRegister />} />
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/donor/personal-details" element={<DonorPersonalDetails />} />
-        <Route path="/contact" element={<ContactPage />} />
-      </Routes>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <div className="d-flex flex-column min-vh-100">
+          {/* Public Routes */}
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/welcome" element={<WelcomePage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/role-selection" element={<RoleSelectionPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+
+            {/* Protected Routes */}
+            <Route path="/dashboard" element={
+              <ProtectedRoute>
+                <DashboardSwitch />
+              </ProtectedRoute>
+            } />
+
+            <Route path="/profile" element={
+              <ProtectedRoute>
+                <ProfilePage />
+              </ProtectedRoute>
+            } />
+
+            <Route path="/health-tracking" element={
+              <ProtectedRoute>
+                <HealthTrackingPage />
+              </ProtectedRoute>
+            } />
+
+            <Route path="/appointments" element={
+              <ProtectedRoute>
+                <AppointmentCalendarPage />
+              </ProtectedRoute>
+            } />
+
+            <Route path="/blood-requests" element={
+              <ProtectedRoute>
+                <BloodRequestsPage />
+              </ProtectedRoute>
+            } />
+
+            <Route path="/blood-donor-finder" element={
+              <ProtectedRoute>
+                <BloodDonorFinderPage />
+              </ProtectedRoute>
+            } />
+
+            <Route path="/chatbot" element={
+              <ProtectedRoute>
+                <ChatbotPage />
+              </ProtectedRoute>
+            } />
+
+            {/* 404 Page */}
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+
+          {/* Chatbot - Fixed Position */}
+          <Routes>
+            <Route path="/dashboard" element={
+              <ProtectedRoute>
+                <ChatbotButton />
+              </ProtectedRoute>
+            } />
+            <Route path="/profile" element={
+              <ProtectedRoute>
+                <ChatbotButton />
+              </ProtectedRoute>
+            } />
+            <Route path="/health-tracking" element={
+              <ProtectedRoute>
+                <ChatbotButton />
+              </ProtectedRoute>
+            } />
+            <Route path="/appointments" element={
+              <ProtectedRoute>
+                <ChatbotButton />
+              </ProtectedRoute>
+            } />
+            <Route path="/blood-requests" element={
+              <ProtectedRoute>
+                <ChatbotButton />
+              </ProtectedRoute>
+            } />
+            <Route path="/blood-donor-finder" element={
+              <ProtectedRoute>
+                <ChatbotButton />
+              </ProtectedRoute>
+            } />
+          </Routes>
+        </div>
+      </Router>
+    </AuthProvider>
   );
+}
+
+// Component to switch dashboard based on user role
+function DashboardSwitch() {
+  return <RoleBasedDashboard />;
+}
+
+function RoleBasedDashboard() {
+  const { user } = useAuth();
+
+  if (!user) return null;
+
+  switch (user.role) {
+    case 'patient':
+      return <PatientDashboard />;
+    case 'donor':
+      return <DonorDashboard />;
+    case 'doctor':
+      return <DoctorDashboard />;
+    case 'hospital':
+      return <HospitalDashboard />;
+    case 'admin':
+      return <AdminDashboard />;
+    default:
+      return <HomePage />;
+  }
+}
+
+// Simple wrapper for ChatbotButton to use AuthContext
+function ChatbotButton() {
+  const { user } = useAuth();
+  if (!user) return null;
+  return <ChatbotPage />;
 }
 
 export default App;
