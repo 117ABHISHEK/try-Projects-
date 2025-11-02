@@ -146,6 +146,20 @@ function App() {
   );
 }
 
+// Layout wrapper for protected pages
+function DashboardLayout({ children }) {
+  return (
+    <>
+      <Navbar />
+      <main className="flex-grow-1">
+        {children}
+      </main>
+      <Footer />
+      <Chatbot />
+    </>
+  );
+}
+
 // Component to switch dashboard based on user role
 function DashboardSwitch() {
   return <RoleBasedDashboard />;
@@ -172,10 +186,8 @@ function RoleBasedDashboard() {
   }
 }
 
-// Simple wrapper for ChatbotButton to use AuthContext
-function ChatbotButton() {
-  const { user } = useAuth();
-  if (!user) return null;
+// Chatbot Component
+function Chatbot() {
   return <ChatbotPage />;
 }
 
