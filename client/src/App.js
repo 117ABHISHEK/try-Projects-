@@ -111,10 +111,6 @@ function App() {
     </AuthProvider>
   );
 }
-        </div>
-      </Router>
-    </AuthProvider>
-  );
 }
 
 // Layout wrapper for protected pages
