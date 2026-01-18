@@ -1,0 +1,10 @@
+flask
+flask-cors
+pandas
+numpy
+lightgbm
+scikit-learn
+joblib
+python-dateutil
+pydantic
+python-dotenv
