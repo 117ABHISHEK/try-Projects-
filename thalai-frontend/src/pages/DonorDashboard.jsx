@@ -5,9 +5,13 @@ import { getProfile, updateProfile } from '../api/auth';
 import { getDonorAvailability, updateDonorAvailability } from '../api/donor';
 import StatCard from '../components/StatCard';
 import HealthMetricsForm from '../components/HealthMetricsForm';
+import AppointmentList from '../components/AppointmentList';
+
+import { useLocation } from 'react-router-dom';
 
 const DonorDashboard = () => {
   const { user, logout, updateUser } = useAuth();
+  const location = useLocation();
   const [profile, setProfile] = useState(null);
   const [donorProfile, setDonorProfile] = useState(null);
   const [availability, setAvailability] = useState(null);
@@ -20,6 +24,14 @@ const DonorDashboard = () => {
   });
   const [message, setMessage] = useState('');
   const [activeTab, setActiveTab] = useState('overview');
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const tab = params.get('tab');
+    if (tab) {
+      setActiveTab(tab);
+    }
+  }, [location]);
 
   useEffect(() => {
     fetchData();
@@ -174,6 +186,7 @@ const DonorDashboard = () => {
                 { id: 'overview', label: 'Overview' },
                 { id: 'profile', label: 'Profile' },
                 { id: 'health', label: 'Health Reports' },
+                { id: 'appointments', label: 'My Appointments' },
               ].map((tab) => (
                 <button
                   key={tab.id}
@@ -536,6 +549,13 @@ const DonorDashboard = () => {
               loading={loading}
               role="donor"
             />
+          </div>
+        )}
+
+        {activeTab === 'appointments' && (
+          <div className="card">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">My Appointments</h2>
+            <AppointmentList role="donor" />
           </div>
         )}
       </div>
